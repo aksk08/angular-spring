@@ -1,0 +1,27 @@
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+
+/* Navigation link styles */
+a.my {
+  padding: 5px 10px;
+  text-decoration: none;
+  margin-right: 10px;
+  margin-top: 10px;
+  display: inline-block;
+  background-color: #eee;
+  border-radius: 4px;
+
+  &:visited, &:link {
+    color: #8b0410;
+  }
+
+  &:hover {
+    color: #039be5;
+    background-color: #CFD8DC;
+  }
+
+  &:active {
+    color: #14e529;
+  }
+
+}
+
