@@ -61,10 +61,49 @@
 						</configuration>
 					</execution>
 
+					<execution>
+						<id>webpack build</id>
+						<goals>
+							<goal>webpack</goal>
+						</goals>
+
+						<!-- optional: the default phase is "generate-resources" -->
+						<phase>generate-resources</phase>
+
+						<configuration>
+							<!-- optional: if not specified, it will run webpack's default
+							build (and you can remove this whole <configuration> section.) -->
+							<arguments>--config config/webpack.prod.js --progress --profile --bail</arguments>
+						</configuration>
+					</execution>
+
+					<execution>
+						<id>javascript tests</id>
+						<goals>
+							<goal>karma</goal>
+						</goals>
+
+						<!-- optional: the default plase is "test". Some developers
+						choose to run karma in the "integration-test" phase. -->
+						<phase>test</phase>
+
+						<configuration>
+							<!-- optional: the default is "karma.conf.js" in your working directory -->
+							<karmaConfPath>karma.conf.ci.js</karmaConfPath>
+						</configuration>
+					</execution>
+
 				</executions>
 
 			</plugin>
 		</plugins>
+
+		<resources>
+			<resource>
+				<directory>target/webapp</directory>
+				<targetPath>static</targetPath>
+			</resource>
+		</resources>
 	</build>
 
 </project>
